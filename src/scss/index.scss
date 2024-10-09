@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Roboto+Slab:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+@import "./colorVariables";
+
+$spaceMono: "Space Mono", monospace;
+$kumbhSans: "Kumbh Sans", sans-serif;
+$robotoSlab:"Roboto Slab", serif;
+
+
+@mixin settingBorder {
+  border-bottom: 1px solid $greyColor;
+}
+
+/* ----- default styling ----- */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+input[type="number"],
+button {
+  background-color: transparent;
+  border: none;
+}
+/* Hide arrows in Webkit browsers (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+input:focus,
+button:focus {
+  outline: 2px solid $grard-color1;
+  offset: 3px;
+}
+img {
+  width: 100%;
+  height: inherit;
+}
+
+/* ----- Utility Class ----- */
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----------------------------- */
+/* ----- Main Page Styling ----- */
+/* ----------------------------- */
+
+body {
+  font-family: $kumbhSans;
+  max-width: 100vw;
+  background-color: $Blue;
+}
+body.kumbh{
+  font-family: $kumbhSans;
+}
+body.roboto{
+  font-family: $robotoSlab;
+}
+body.spaceMono{
+  font-family: $spaceMono;
+}
+
+div#root {
+  width: 100%;
+}
+div#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  font-size: 2rem;
+  color: $greyColor;
+  margin: 2rem;
+}
+
+/* ----- Nav ----- */
+
+nav {
+  min-height: 3.188rem;
+  background-color: $DarkBlue;
+  padding: 0.5rem;
+  border-radius: 5rem;
+  label {
+    background-color: transparent;
+    color: $greyColor;
+    opacity: 0.4;
+    font-size: 0.75rem;
+    padding: 0.65rem;
+    border-radius: 3rem;
+    font-family: "Kumbh Sans", sans-serif;
+  }
+  label.active {
+    background-color: var(--theme-clr);
+    color: $DarkBlue;
+    opacity: 1;
+  }
+}
+
+/* ----- Time Circle ----- */
+
+section.timer {
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  padding: 1.6rem;
+  margin: 2.813rem 0rem 3.75rem;
+  background-image: linear-gradient(
+    315deg,
+    $grard-color1 0%,
+    $grard-color2 100%
+  );
+  box-shadow: 50px 50px 100px #121530, -50px -50px 100px #272c5a;
+
+  div.circle {
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: $DarkBlue;
+    border: 0.6rem solid var(--theme-clr);
+    outline: 0.5rem solid $DarkBlue;
+    p.time {
+      font-size: 5rem;
+      color: $greyColor;
+      padding:0rem 1rem;
+    }
+    button.start {
+      text-transform: uppercase;
+      color: $greyColor;
+      letter-spacing: 0.938rem;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+button.reset svg {
+  width: 2rem;
+  height: 2rme;
+}
+
+/* ----------------------------- */
+/* ----- Setting Part Styling ----- */
+/* ----------------------------- */
+
+button.setting {
+  opacity: 0.5;
+}
+
+// setting
+
+div.setting {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: $trans-black;
+  div.settingContent {
+    width: 100%;
+    max-width: 33.75rem;
+    background-color: white;
+    border-radius: 1.563rem;
+    position: relative;
+  }
+}
+div.settingHeader {
+  @include settingBorder();
+  padding: 1.5rem;
+  justify-content: space-between;
+  h1 {
+    color: $DarkBlue;
+    font-size: 1.25rem;
+    margin: 0rem;
+  }
+}
+div.settingForm {
+  form {
+    color: $DarkBlue;
+    padding: 1.5rem;
+    h2 {
+      text-transform: uppercase;
+      font-size: 0.688rem;
+      letter-spacing: 0.313rem;
+      text-align: center;
+    }
+  }
+}
+
+/* ----- Time Setting ----- */
+
+div.settingTime {
+  @include settingBorder();
+  div.timeInput {
+    padding: 1.125rem 0rem;
+    div.timeInputItem {
+      max-width: 100%;
+      max-height: 3.125rem;
+      margin-bottom: 0.625rem;
+      gap: 0.938rem;
+      label {
+        font-size: 0.75rem;
+        color: $transGrey;
+        width: 40%;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+div.inputNumber {
+  background-color: $settingGrey;
+  border: none;
+  border-radius: 0.625rem;
+  padding: 1rem 0.6rem 1rem 1rem;
+  width: 60%;
+  height: 3.125rem;
+  font-size: 0.875rem;
+  color: $DarkBlue;
+  align-items: center;
+  display: flex;
+  input {
+    width: 100%;
+  }
+  div.inputImg {
+    margin-bottom: 0rem;
+  }
+}
+button.arrow {
+  width: auto;
+  height: auto;
+  opacity: 0.3;
+  img {
+    width: 0.75rem;
+    height: inherit;
+  }
+}
+button.arrowUP {
+  transform: rotate(180deg);
+}
+
+/* ----- Setting Font ----- */
+
+div.formRadioContent {
+  padding: 1.125rem 0rem;
+  div {
+    gap: 0.75rem;
+    margin-top: 1.125rem;
+    label.active{
+      outline: 2px solid $greyColor;
+      outline-offset: 3px;
+    }
+  }
+}
+div.fontContent {
+  @include settingBorder();
+}
+label.formRadioLabel {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+}
+label.fontLabel {
+  background-color: $settingGrey;
+  color: $DarkBlue;
+  font-size: 0.875rem;
+}
+label.fontLabel:nth-child(2){
+  font-family: $robotoSlab;
+}
+label.fontLabel:last-child{
+  font-family: $spaceMono;
+}
+label.fontLabel.active {
+  background-color: $DarkBlue;
+  color: white;
+}
+
+/* ----- Setting Color ----- */
+
+label.colorLabel {
+  img {
+    width: 1.7rem;
+  }
+}
+label.colorLabel:first-child {
+  background-color: $Peach;
+}
+label.colorLabel:nth-child(2) {
+  background-color: $electricBlue;
+}
+label.colorLabel:last-child {
+  background-color: $brightLavender;
+}
+
+button.apply {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: 8.75rem;
+  background-color: $Peach;
+  font-size: 0.875rem;
+  color: white;
+  border-radius: 1.875rem;
+  padding: 0.875rem 2rem;
+  transform: translateY(50%);
+  text-align: center;
+}
+
+@media (hover: hover) {
+  section.timer div button.start:hover {
+    color: var(--theme-clr);
+  }
+  button.reset:hover svg {
+    fill: var(--theme-clr);
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  nav {
+    label {
+      padding: 0.875rem 1.125rem;
+    }
+  }
+  section.timer {
+    padding: 2.2rem;
+    div.circle {
+      border: 0.688rem solid var(--theme-clr);
+      outline: 0.9rem solid $DarkBlue;
+      p.time {
+        font-size: 6.25rem;
+      }
+      button {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 571px) {
+  h1 {
+    margin: 3rem;
+  }
+  nav {
+    label {
+      padding: 1rem 1.625rem;
+      font-size: 0.875rem;
+    }
+  }
+  div.settingHeader {
+    padding: 1.875rem 2.5rem;
+  }
+  div.settingForm {
+    form {
+      padding: 1.875rem 2.5rem;
+    }
+  }
+  div.settingForm {
+    form {
+      h2 {
+        font-size: 0.813rem;
+        text-align: left;
+      }
+    }
+  }
+  div.settingTime div.timeInput {
+    display: flex;
+    gap: 1.25rem;
+    padding-top: 0rem;
+    margin: 1.5rem 0rem;
+  }
+  div.timeInputItem {
+    display: inline-block;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+  div.inputNumber {
+    width: 100%;
+  }
+  div.formRadioContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0rem;
+    div {
+      margin-top: 0rem;
+    }
+  }
+  label.formRadioLabel {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 1.563rem;
+  }
+}

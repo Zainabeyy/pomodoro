@@ -1,0 +1,24 @@
+$transGrey: #1e213f66;
+$settingGrey: #eff1fa;
+$greyColor: #d7e0ff;
+$Blue: #1e213f;
+$DarkBlue: #161932;
+$Peach: #f87070;
+$electricBlue: #70f3f8;
+$brightLavender: #d881f8;
+$grard-color1: #2e325a;
+$grard-color2: #0e112a;
+$trans-black: #0a0c1c80;
+
+html{
+    --theme-clr:#{$Peach};
+}
+html[data-theme="peach"]{
+    --theme-clr:#{$Peach};
+}
+html[data-theme="electricBlue"]{
+    --theme-clr:#{$electricBlue};
+}
+html[data-theme="brightLavender"]{
+    --theme-clr:#{$brightLavender};
+}

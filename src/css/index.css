@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Roboto+Slab:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+html {
+  --theme-clr:#f87070;
+}
+
+html[data-theme=peach] {
+  --theme-clr:#f87070;
+}
+
+html[data-theme=electricBlue] {
+  --theme-clr:#70f3f8;
+}
+
+html[data-theme=brightLavender] {
+  --theme-clr:#d881f8;
+}
+
+/* ----- default styling ----- */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+input[type=number],
+button {
+  background-color: transparent;
+  border: none;
+}
+
+/* Hide arrows in Webkit browsers (Chrome, Safari, Edge) */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=radio] {
+  opacity: 0;
+  position: absolute;
+}
+
+input:focus,
+button:focus {
+  outline: 2px solid #2e325a;
+  offset: 3px;
+}
+
+img {
+  width: 100%;
+  height: inherit;
+}
+
+/* ----- Utility Class ----- */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----------------------------- */
+/* ----- Main Page Styling ----- */
+/* ----------------------------- */
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  max-width: 100vw;
+  background-color: #1e213f;
+}
+
+body.kumbh {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+body.roboto {
+  font-family: "Roboto Slab", serif;
+}
+
+body.spaceMono {
+  font-family: "Space Mono", monospace;
+}
+
+div#root {
+  width: 100%;
+}
+
+div#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #d7e0ff;
+  margin: 2rem;
+}
+
+/* ----- Nav ----- */
+nav {
+  min-height: 3.188rem;
+  background-color: #161932;
+  padding: 0.5rem;
+  border-radius: 5rem;
+}
+nav label {
+  background-color: transparent;
+  color: #d7e0ff;
+  opacity: 0.4;
+  font-size: 0.75rem;
+  padding: 0.65rem;
+  border-radius: 3rem;
+  font-family: "Kumbh Sans", sans-serif;
+}
+nav label.active {
+  background-color: var(--theme-clr);
+  color: #161932;
+  opacity: 1;
+}
+
+/* ----- Time Circle ----- */
+section.timer {
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  padding: 1.6rem;
+  margin: 2.813rem 0rem 3.75rem;
+  background-image: linear-gradient(315deg, #2e325a 0%, #0e112a 100%);
+  box-shadow: 50px 50px 100px #121530, -50px -50px 100px #272c5a;
+}
+section.timer div.circle {
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #161932;
+  border: 0.6rem solid var(--theme-clr);
+  outline: 0.5rem solid #161932;
+}
+section.timer div.circle p.time {
+  font-size: 5rem;
+  color: #d7e0ff;
+  padding: 0rem 1rem;
+}
+section.timer div.circle button.start {
+  text-transform: uppercase;
+  color: #d7e0ff;
+  letter-spacing: 0.938rem;
+  font-size: 0.75rem;
+}
+
+button.reset svg {
+  width: 2rem;
+  height: 2rme;
+}
+
+/* ----------------------------- */
+/* ----- Setting Part Styling ----- */
+/* ----------------------------- */
+button.setting {
+  opacity: 0.5;
+}
+
+div.setting {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(10, 12, 28, 0.5019607843);
+}
+div.setting div.settingContent {
+  width: 100%;
+  max-width: 33.75rem;
+  background-color: white;
+  border-radius: 1.563rem;
+  position: relative;
+}
+
+div.settingHeader {
+  border-bottom: 1px solid #d7e0ff;
+  padding: 1.5rem;
+  justify-content: space-between;
+}
+div.settingHeader h1 {
+  color: #161932;
+  font-size: 1.25rem;
+  margin: 0rem;
+}
+
+div.settingForm form {
+  color: #161932;
+  padding: 1.5rem;
+}
+div.settingForm form h2 {
+  text-transform: uppercase;
+  font-size: 0.688rem;
+  letter-spacing: 0.313rem;
+  text-align: center;
+}
+
+/* ----- Time Setting ----- */
+div.settingTime {
+  border-bottom: 1px solid #d7e0ff;
+}
+div.settingTime div.timeInput {
+  padding: 1.125rem 0rem;
+}
+div.settingTime div.timeInput div.timeInputItem {
+  max-width: 100%;
+  max-height: 3.125rem;
+  margin-bottom: 0.625rem;
+  gap: 0.938rem;
+}
+div.settingTime div.timeInput div.timeInputItem label {
+  font-size: 0.75rem;
+  color: rgba(30, 33, 63, 0.4);
+  width: 40%;
+  white-space: nowrap;
+}
+
+div.inputNumber {
+  background-color: #eff1fa;
+  border: none;
+  border-radius: 0.625rem;
+  padding: 1rem 0.6rem 1rem 1rem;
+  width: 60%;
+  height: 3.125rem;
+  font-size: 0.875rem;
+  color: #161932;
+  align-items: center;
+  display: flex;
+}
+div.inputNumber input {
+  width: 100%;
+}
+div.inputNumber div.inputImg {
+  margin-bottom: 0rem;
+}
+
+button.arrow {
+  width: auto;
+  height: auto;
+  opacity: 0.3;
+}
+button.arrow img {
+  width: 0.75rem;
+  height: inherit;
+}
+
+button.arrowUP {
+  transform: rotate(180deg);
+}
+
+/* ----- Setting Font ----- */
+div.formRadioContent {
+  padding: 1.125rem 0rem;
+}
+div.formRadioContent div {
+  gap: 0.75rem;
+  margin-top: 1.125rem;
+}
+div.formRadioContent div label.active {
+  outline: 2px solid #d7e0ff;
+  outline-offset: 3px;
+}
+
+div.fontContent {
+  border-bottom: 1px solid #d7e0ff;
+}
+
+label.formRadioLabel {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+}
+
+label.fontLabel {
+  background-color: #eff1fa;
+  color: #161932;
+  font-size: 0.875rem;
+}
+
+label.fontLabel:nth-child(2) {
+  font-family: "Roboto Slab", serif;
+}
+
+label.fontLabel:last-child {
+  font-family: "Space Mono", monospace;
+}
+
+label.fontLabel.active {
+  background-color: #161932;
+  color: white;
+}
+
+/* ----- Setting Color ----- */
+label.colorLabel img {
+  width: 1.7rem;
+}
+
+label.colorLabel:first-child {
+  background-color: #f87070;
+}
+
+label.colorLabel:nth-child(2) {
+  background-color: #70f3f8;
+}
+
+label.colorLabel:last-child {
+  background-color: #d881f8;
+}
+
+button.apply {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: 8.75rem;
+  background-color: #f87070;
+  font-size: 0.875rem;
+  color: white;
+  border-radius: 1.875rem;
+  padding: 0.875rem 2rem;
+  transform: translateY(50%);
+  text-align: center;
+}
+
+@media (hover: hover) {
+  section.timer div button.start:hover {
+    color: var(--theme-clr);
+  }
+  button.reset:hover svg {
+    fill: var(--theme-clr);
+  }
+}
+@media only screen and (min-width: 375px) {
+  nav label {
+    padding: 0.875rem 1.125rem;
+  }
+  section.timer {
+    padding: 2.2rem;
+  }
+  section.timer div.circle {
+    border: 0.688rem solid var(--theme-clr);
+    outline: 0.9rem solid #161932;
+  }
+  section.timer div.circle p.time {
+    font-size: 6.25rem;
+  }
+  section.timer div.circle button {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 571px) {
+  h1 {
+    margin: 3rem;
+  }
+  nav label {
+    padding: 1rem 1.625rem;
+    font-size: 0.875rem;
+  }
+  div.settingHeader {
+    padding: 1.875rem 2.5rem;
+  }
+  div.settingForm form {
+    padding: 1.875rem 2.5rem;
+  }
+  div.settingForm form h2 {
+    font-size: 0.813rem;
+    text-align: left;
+  }
+  div.settingTime div.timeInput {
+    display: flex;
+    gap: 1.25rem;
+    padding-top: 0rem;
+    margin: 1.5rem 0rem;
+  }
+  div.timeInputItem {
+    display: inline-block;
+  }
+  div.timeInputItem label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  div.inputNumber {
+    width: 100%;
+  }
+  div.formRadioContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0rem;
+  }
+  div.formRadioContent div {
+    margin-top: 0rem;
+  }
+  label.formRadioLabel {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 1.563rem;
+  }
+}/*# sourceMappingURL=index.css.map */
