@@ -1,21 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-type Time={
-  time:number
-}
+type Time = {
+  time: number;
+};
 
 export default function Timer({ time }: Time) {
-
   const [isActive, setIsActive] = React.useState(false);
   const [timeLeft, setTimeLeft] = React.useState(time * 60);
   const intervalRef = React.useRef<number | undefined>(undefined);
 
   React.useEffect(() => {
-    if(intervalRef.current !==undefined){
+    if (intervalRef.current !== undefined) {
       clearInterval(intervalRef.current);
       intervalRef.current = undefined;
     }
-    setIsActive(false)
+    setIsActive(false);
     setTimeLeft(time * 60);
   }, [time]);
 
@@ -45,9 +45,9 @@ export default function Timer({ time }: Time) {
   // reset button
 
   function handleReset() {
-    if (intervalRef.current !== undefined) { 
-      clearInterval(intervalRef.current); 
-      intervalRef.current = undefined; 
+    if (intervalRef.current !== undefined) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = undefined;
       setIsActive(false);
     }
     setTimeLeft(time * 60);
@@ -64,25 +64,30 @@ export default function Timer({ time }: Time) {
           <span className="sec">{String(timeLeft % 60).padStart(2, "0")}</span>
         </p>
         <div className="timeButton flex">
-        <button type="button" className="start" onClick={startTimer}>
-          start
-        </button>
-        <button type="button" className="reset" onClick={handleReset}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#d7e0ff"
+          <motion.button
+            type="button"
+            className="start"
+            onClick={startTimer}
+            whileHover={{scale:1.1}}
           >
-            <path
-              d="M440-122q-121-15-200.5-105.5T160-440q0-66 26-126.5T260-672l57
+            start
+          </motion.button>
+          <motion.button type="button" className="reset" onClick={handleReset} whileHover={{scale:1.2}}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#d7e0ff"
+            >
+              <path
+                d="M440-122q-121-15-200.5-105.5T160-440q0-66 26-126.5T260-672l57
              57q-38 34-57.5 79T240-440q0 88 56 155.5T440-202v80Zm80 0v-80q87-16 
              143.5-83T720-440q0-100-70-170t-170-70h-3l44 44-56 56-140-140 140-140
               56 56-44 44h3q134 0 227 93t93 227q0 121-79.5 211.5T520-122Z"
-            />
-          </svg>
-        </button>
+              />
+            </svg>
+          </motion.button>
         </div>
       </div>
     </section>

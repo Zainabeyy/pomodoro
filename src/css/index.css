@@ -52,6 +52,11 @@ img {
   height: inherit;
 }
 
+label:hover,
+button:hover {
+  cursor: pointer;
+}
+
 /* ----- Utility Class ----- */
 .flex {
   display: flex;
@@ -111,6 +116,7 @@ nav label {
   padding: 0.65rem;
   border-radius: 3rem;
   font-family: "Kumbh Sans", sans-serif;
+  transition: background-color 0.3s linear;
 }
 nav label.active {
   background-color: var(--theme-clr);

@@ -1,10 +1,16 @@
-export default function Nav(props: {
+import { motion } from "framer-motion";
+import React from "react";
+
+type Timer={
   timerMode: string;
   handleTimerMode: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}) {
+}
+
+export default function Nav(props: Timer) {
+
   return (
     <nav className="flex">
-      <label
+      <motion.label
         htmlFor="pomodoro"
         className={props.timerMode === "pomodoro" ? "active" : ""}
       >
@@ -17,8 +23,8 @@ export default function Nav(props: {
           checked={props.timerMode === "pomodoro"}
         />
         pomodoro
-      </label>
-      <label
+      </motion.label>
+      <motion.label
         htmlFor="shortBreak"
         className={props.timerMode === "shortBreak" ? "active" : ""}
       >
@@ -31,7 +37,7 @@ export default function Nav(props: {
           checked={props.timerMode === "shortBreak"}
         />
         short break
-      </label>
+      </motion.label>
       <label
         htmlFor="longBreak"
         className={props.timerMode === "longBreak" ? "active" : ""}
