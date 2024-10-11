@@ -68,11 +68,18 @@ export default function Timer({ time }: Time) {
             type="button"
             className="start"
             onClick={startTimer}
-            whileHover={{scale:1.1}}
+            whileHover={{ scale: 1.1 }}
+            aria-label="Start timer"
           >
             start
           </motion.button>
-          <motion.button type="button" className="reset" onClick={handleReset} whileHover={{scale:1.2}}>
+          <motion.button
+            type="button"
+            className="reset"
+            onClick={handleReset}
+            whileHover={{ scale: 1.2 }}
+            aria-label="Reset timer"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
